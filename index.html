@@ -3,154 +3,740 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>キュルキュルファイターズ</title>
+
+<title>キュルキュルファイターズ｜きゅるふぁい</title>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Dela+Gothic+One&family=DotGothic16&family=M+PLUS+Rounded+1c:wght@400;700;800;900&family=Montserrat:wght@700;900&family=Rampart+One&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
 
 <style>
+
 * {
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Noto Sans JP", sans-serif;
-  background: #f7f7fb;
+  overflow-x: hidden;
   color: #222;
+  background:
+    radial-gradient(circle at 10% 10%, #ffd5f3, transparent 25%),
+    radial-gradient(circle at 90% 20%, #c9f7ff, transparent 25%),
+    radial-gradient(circle at 50% 90%, #e5d4ff, transparent 30%),
+    #fff;
+  font-family: "Zen Maru Gothic", sans-serif;
 }
 
-header {
-  padding: 70px 20px;
-  text-align: center;
-  background: linear-gradient(135deg, #7c4dff, #00bcd4);
-  color: white;
+/* ===== 装飾 ===== */
+
+.deco {
+  position: fixed;
+  pointer-events: none;
+  z-index: -1;
+  font-size: 35px;
+  animation: float 5s ease-in-out infinite;
 }
 
-header h1 {
-  font-size: 42px;
-  margin: 0 0 10px;
+.deco1 {
+  top: 20%;
+  left: 5%;
 }
 
-header p {
-  font-size: 18px;
-  margin: 0;
+.deco2 {
+  top: 50%;
+  right: 5%;
+  animation-delay: 1s;
 }
+
+.deco3 {
+  bottom: 15%;
+  left: 10%;
+  animation-delay: 2s;
+}
+
+.deco4 {
+  bottom: 30%;
+  right: 12%;
+  animation-delay: 3s;
+}
+
+@keyframes float {
+  0%,100% {
+    transform: translateY(0) rotate(-5deg);
+  }
+
+  50% {
+    transform: translateY(-20px) rotate(8deg);
+  }
+}
+
+/* ===== NAV ===== */
 
 nav {
+  position: fixed;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: calc(100% - 25px);
+  max-width: 1000px;
+
+  padding: 10px;
+
   display: flex;
   justify-content: center;
-  gap: 10px;
   flex-wrap: wrap;
-  padding: 15px;
-  background: white;
-  position: sticky;
-  top: 0;
+  gap: 7px;
+
+  background: rgba(255,255,255,.8);
+  backdrop-filter: blur(15px);
+
+  border-radius: 999px;
+
+  box-shadow: 0 10px 35px rgba(0,0,0,.1);
+
+  z-index: 100;
 }
 
 nav a {
   text-decoration: none;
-  color: #333;
-  font-weight: bold;
-  padding: 8px 12px;
+  color: #222;
+
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-weight: 900;
+
+  padding: 8px 14px;
+  border-radius: 999px;
+
+  transition: .25s;
 }
 
-main {
-  max-width: 900px;
-  margin: auto;
-  padding: 30px 20px;
+nav a:hover {
+  background: #222;
+  color: white;
+  transform: scale(1.08);
 }
+
+/* ===== HERO ===== */
+
+.hero {
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  padding: 120px 20px 80px;
+
+  position: relative;
+}
+
+.hero-small {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 900;
+  letter-spacing: .3em;
+  font-size: 13px;
+}
+
+.logo {
+  font-family: "Rampart One", sans-serif;
+
+  font-size: clamp(70px, 16vw, 180px);
+
+  line-height: .9;
+
+  margin: 20px 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ff3dbd,
+      #7d55ff,
+      #00cfff,
+      #00d78c,
+      #ffd000,
+      #ff3dbd
+    );
+
+  background-size: 400%;
+
+  -webkit-background-clip: text;
+  color: transparent;
+
+  animation: rainbow 8s linear infinite;
+
+  filter: drop-shadow(8px 8px 0 rgba(0,0,0,.08));
+}
+
+@keyframes rainbow {
+  to {
+    background-position: 400%;
+  }
+}
+
+.hero-title {
+  font-family: "Dela Gothic One", sans-serif;
+  font-size: clamp(20px,4vw,38px);
+}
+
+.hero-description {
+  font-family: "Zen Maru Gothic", sans-serif;
+  font-weight: 700;
+
+  line-height: 2;
+
+  max-width: 650px;
+
+  margin: 25px auto 35px;
+}
+
+.hero-button {
+  display: inline-block;
+
+  padding: 17px 32px;
+
+  background: #222;
+  color: white;
+
+  border-radius: 999px;
+
+  text-decoration: none;
+
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-weight: 900;
+
+  box-shadow: 0 8px 0 #bcbcbc;
+
+  transition: .2s;
+}
+
+.hero-button:hover {
+  transform: translateY(5px);
+  box-shadow: 0 3px 0 #bcbcbc;
+}
+
+/* ===== 共通 ===== */
 
 section {
-  background: white;
-  margin-bottom: 25px;
-  padding: 25px;
-  border-radius: 20px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+  max-width: 1100px;
+  margin: auto;
+  padding: 100px 20px;
 }
 
-h2 {
-  margin-top: 0;
+.section-heading {
+  text-align: center;
+  margin-bottom: 55px;
 }
 
-.card {
-  padding: 18px;
-  border-radius: 15px;
-  background: #f1f1f7;
-  margin-top: 12px;
-}
-
-.links a {
+.section-heading .english {
   display: block;
-  padding: 14px;
-  margin-top: 10px;
-  border-radius: 12px;
-  background: #eee;
-  color: #222;
-  text-decoration: none;
-  font-weight: bold;
+
+  font-family: "Bebas Neue", sans-serif;
+
+  font-size: 30px;
+
+  letter-spacing: .15em;
 }
+
+.section-heading h2 {
+  margin: 5px 0;
+
+  font-family: "Dela Gothic One", sans-serif;
+
+  font-size: clamp(35px,7vw,65px);
+}
+
+/* ===== ABOUT ===== */
+
+.about {
+  background: rgba(255,255,255,.75);
+
+  border-radius: 40px;
+
+  padding: 50px;
+
+  box-shadow: 0 25px 60px rgba(0,0,0,.08);
+
+  text-align: center;
+}
+
+.about h3 {
+  font-family: "Pop" , "Dela Gothic One", sans-serif;
+  font-size: 32px;
+}
+
+.about p {
+  font-size: 17px;
+  line-height: 2;
+}
+
+/* ===== NEWS ===== */
+
+.news {
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
+
+  gap: 22px;
+}
+
+.news-card {
+  background: white;
+
+  padding: 30px;
+
+  border-radius: 30px;
+
+  box-shadow: 0 15px 40px rgba(0,0,0,.08);
+
+  transition: .3s;
+}
+
+.news-card:hover {
+  transform:
+    translateY(-10px)
+    rotate(-1deg);
+}
+
+.news-date {
+  font-family: "Bebas Neue", sans-serif;
+
+  color: #7d55ff;
+
+  font-size: 22px;
+}
+
+.news-card h3 {
+  font-family: "Dela Gothic One", sans-serif;
+}
+
+/* ===== MEMBERS ===== */
+
+.members {
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit,minmax(180px,1fr));
+
+  gap: 22px;
+}
+
+.member {
+  background: white;
+
+  padding: 30px 20px;
+
+  border-radius: 30px;
+
+  text-align: center;
+
+  box-shadow: 0 15px 40px rgba(0,0,0,.08);
+
+  transition: .3s;
+}
+
+.member:hover {
+  transform:
+    translateY(-10px)
+    scale(1.03);
+}
+
+.member-icon {
+  width: 100px;
+  height: 100px;
+
+  margin: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffd1f2,
+      #c8f6ff
+    );
+
+  font-size: 48px;
+}
+
+.member h3 {
+  font-family: "Dela Gothic One", sans-serif;
+}
+
+/* ===== DICTIONARY ===== */
+
+.dictionary {
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+
+  gap: 20px;
+}
+
+.word {
+  padding: 30px;
+
+  border-radius: 30px;
+
+  background:
+    linear-gradient(
+      135deg,
+      white,
+      #f1edff
+    );
+
+  box-shadow: 0 12px 30px rgba(0,0,0,.06);
+
+  transition: .3s;
+}
+
+.word:hover {
+  transform: rotate(2deg) scale(1.03);
+}
+
+.word strong {
+  font-family: "DotGothic16", sans-serif;
+
+  font-size: 25px;
+}
+
+/* ===== SNS ===== */
+
+.sns {
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+
+  gap: 20px;
+}
+
+.sns a {
+  display: block;
+
+  padding: 35px;
+
+  border-radius: 30px;
+
+  background: white;
+
+  color: #222;
+
+  text-decoration: none;
+
+  box-shadow: 0 15px 40px rgba(0,0,0,.08);
+
+  transition: .3s;
+}
+
+.sns a:hover {
+  transform: translateY(-10px) rotate(1deg);
+}
+
+.sns-icon {
+  font-size: 45px;
+}
+
+.sns h3 {
+  font-family: "Dela Gothic One", sans-serif;
+}
+
+/* ===== FOOTER ===== */
 
 footer {
   text-align: center;
-  padding: 30px;
-  color: #777;
+
+  padding: 70px 20px;
+
+  background: #171717;
+
+  color: white;
 }
+
+.footer-logo {
+  font-family: "Rampart One", sans-serif;
+
+  font-size: 50px;
+}
+
+.footer-sub {
+  font-family: "Bebas Neue", sans-serif;
+
+  letter-spacing: .2em;
+}
+
 </style>
 </head>
 
 <body>
 
-<header>
-  <h1>キュルキュルファイターズ</h1>
-  <p>きゅるふぁい公式サイト</p>
-</header>
+<!-- 装飾 -->
+<div class="deco deco1">✨</div>
+<div class="deco deco2">🌀</div>
+<div class="deco deco3">⚡</div>
+<div class="deco deco4">⭐</div>
 
+<!-- NAV -->
 <nav>
   <a href="#about">ABOUT</a>
   <a href="#news">NEWS</a>
   <a href="#members">MEMBERS</a>
+  <a href="#dictionary">大百科</a>
   <a href="#sns">SNS</a>
 </nav>
 
-<main>
+<!-- HERO -->
+<header class="hero">
 
+  <div>
+
+    <div class="hero-small">
+      KYURU KYURU FIGHTERS
+    </div>
+
+    <div class="logo">
+      きゅるふぁい
+    </div>
+
+    <div class="hero-title">
+      キュルキュルファイターズ
+    </div>
+
+    <p class="hero-description">
+      なんなのかは、よくわからない。<br>
+      でも、なぜか集まっている。<br>
+      それが――きゅるふぁい。
+    </p>
+
+    <a href="#about" class="hero-button">
+      きゅるふぁいを知る →
+    </a>
+
+  </div>
+
+</header>
+
+<!-- ABOUT -->
 <section id="about">
-  <h2>きゅるふぁいとは？</h2>
-  <p>
-    キュルキュルファイターズ、通称「きゅるふぁい」。
-    ここでは、きゅるふぁいの活動や最新情報を発信しています。
-  </p>
+
+  <div class="section-heading">
+    <span class="english">ABOUT US</span>
+    <h2>きゅるふぁいとは？</h2>
+  </div>
+
+  <div class="about">
+
+    <h3>🌀 キュルキュルファイターズ</h3>
+
+    <p>
+      通称<strong>「きゅるふぁい」</strong>。
+    </p>
+
+    <p>
+      友達同士で結成された、<br>
+      楽しく活動する謎のグループです。
+    </p>
+
+    <p>
+      YouTube・TikTok・公式LINEなどで<br>
+      いろいろな活動を発信しています。
+    </p>
+
+  </div>
+
 </section>
 
+<!-- NEWS -->
 <section id="news">
-  <h2>NEWS</h2>
-  <div class="card">
-    <strong>2026.08.21</strong><br>
-    きゅるふぁい公式サイト制作開始！
+
+  <div class="section-heading">
+    <span class="english">LATEST NEWS</span>
+    <h2>NEWS</h2>
   </div>
+
+  <div class="news">
+
+    <article class="news-card">
+      <div class="news-date">
+        2026.08.21
+      </div>
+
+      <h3>
+        🎉 公式サイトOPEN！
+      </h3>
+
+      <p>
+        きゅるふぁい公式サイトがオープンしました！
+      </p>
+    </article>
+
+    <article class="news-card">
+      <div class="news-date">
+        COMING SOON
+      </div>
+
+      <h3>
+        🚀 新しい活動
+      </h3>
+
+      <p>
+        次の活動をお楽しみに！
+      </p>
+    </article>
+
+    <article class="news-card">
+      <div class="news-date">
+        COMING SOON
+      </div>
+
+      <h3>
+        ⭐ お知らせ
+      </h3>
+
+      <p>
+        きゅるふぁいからのお知らせを掲載します。
+      </p>
+    </article>
+
+  </div>
+
 </section>
 
+<!-- MEMBERS -->
 <section id="members">
-  <h2>MEMBERS</h2>
-  <div class="card">
-    👤 メンバー紹介
-    <br><br>
-    ※ メンバー情報は順次追加予定！
+
+  <div class="section-heading">
+    <span class="english">MEMBERS</span>
+    <h2>メンバー</h2>
   </div>
+
+  <div class="members">
+
+    <div class="member">
+      <div class="member-icon">👤</div>
+      <h3>メンバー</h3>
+      <p>プロフィール準備中</p>
+    </div>
+
+    <div class="member">
+      <div class="member-icon">👤</div>
+      <h3>メンバー</h3>
+      <p>プロフィール準備中</p>
+    </div>
+
+    <div class="member">
+      <div class="member-icon">👤</div>
+      <h3>メンバー</h3>
+      <p>プロフィール準備中</p>
+    </div>
+
+    <div class="member">
+      <div class="member-icon">👤</div>
+      <h3>メンバー</h3>
+      <p>プロフィール準備中</p>
+    </div>
+
+  </div>
+
 </section>
 
+<!-- DICTIONARY -->
+<section id="dictionary">
+
+  <div class="section-heading">
+    <span class="english">KYURUFIGHT DICTIONARY</span>
+    <h2>きゅるふぁい大百科</h2>
+  </div>
+
+  <div class="dictionary">
+
+    <div class="word">
+      <strong>きゅるふぁい</strong>
+      <p>
+        キュルキュルファイターズの略称。
+      </p>
+    </div>
+
+    <div class="word">
+      <strong>キュルキュル</strong>
+      <p>
+        きゅるふぁいにおける重要な何か。
+      </p>
+    </div>
+
+    <div class="word">
+      <strong>FIGHTERS</strong>
+      <p>
+        戦うとは限らない。
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- SNS -->
 <section id="sns">
-  <h2>SNS</h2>
 
-  <div class="links">
-    <a href="#">💬 公式LINE</a>
-    <a href="#">🎵 TikTok</a>
-    <a href="#">▶️ YouTube</a>
+  <div class="section-heading">
+    <span class="english">OFFICIAL SNS</span>
+    <h2>SNS</h2>
   </div>
+
+  <div class="sns">
+
+    <a href="#">
+      <div class="sns-icon">💬</div>
+      <h3>公式LINE</h3>
+      <p>きゅるふぁい公式LINE</p>
+    </a>
+
+    <a href="#">
+      <div class="sns-icon">🎵</div>
+      <h3>TikTok</h3>
+      <p>公式TikTok</p>
+    </a>
+
+    <a href="#">
+      <div class="sns-icon">▶️</div>
+      <h3>YouTube</h3>
+      <p>公式YouTube</p>
+    </a>
+
+  </div>
+
 </section>
 
-</main>
-
+<!-- FOOTER -->
 <footer>
-  © 2026 キュルキュルファイターズ
+
+  <div class="footer-logo">
+    きゅるふぁい
+  </div>
+
+  <div class="footer-sub">
+    KYURU KYURU FIGHTERS
+  </div>
+
+  <p>
+    © 2026 キュルキュルファイターズ
+  </p>
+
 </footer>
 
 </body>
